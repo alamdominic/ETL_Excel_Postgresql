@@ -225,24 +225,25 @@ SAD_SHEET="Sheet1"
 
 ### Email Configuration (Optional)
 
-For **Gmail**:
+For **Microsoft Outlook/Office 365**:
 
-1. Enable 2-Factor Authentication
-2. Generate App Password: https://myaccount.google.com/apppasswords
+1. Use your Outlook/Office 365 email credentials
+2. If using 2FA, generate an App Password: https://account.live.com/proofs/AppPassword
 3. Configure:
 
 ```env
-EMAIL_SENDER="your.email@gmail.com"
-EMAIL_PASSWORD="your-16-char-app-password"
+EMAIL_SENDER="your.email@outlook.com"
+EMAIL_PASSWORD="your-app-password"
 EMAIL_RECIPIENT="recipient@company.com"
-SMTP_HOST="smtp.gmail.com"
+SMTP_HOST="smtp-mail.outlook.com"
 SMTP_PORT="587"
 ```
 
 For **Other Providers**:
 
-- Outlook: `smtp-mail.outlook.com:587`
+- Gmail: `smtp.gmail.com:587` (requires App Password)
 - Yahoo: `smtp.mail.yahoo.com:587`
+- Office 365 (work/school): `smtp.office365.com:587`
 
 ### Logging Configuration (Optional)
 
@@ -509,9 +510,10 @@ python test_sync.py
 **Cause**: SMTP credentials invalid  
 **Solution**:
 
-1. For Gmail, use App Password (not regular password)
-2. Verify SMTP host and port settings
+1. For Outlook/Office 365, use App Password if 2FA is enabled
+2. Verify SMTP host (`smtp-mail.outlook.com`) and port (587) settings
 3. Check firewall/antivirus blocking port 587
+4. For Gmail, use App Password: https://myaccount.google.com/apppasswords
 
 ### Problem: Database connection timeout
 

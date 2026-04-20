@@ -38,7 +38,7 @@ def send_etl_notification(
         EMAIL_SENDER: Sender email address
         EMAIL_PASSWORD: Email account password or app password
         EMAIL_RECIPIENT: Default recipient email (optional if recipient_email provided)
-        SMTP_HOST: SMTP server hostname (default: smtp.gmail.com)
+        SMTP_HOST: SMTP server hostname (default: smtp-mail.outlook.com)
         SMTP_PORT: SMTP server port (default: 587)
 
     Example:
@@ -54,7 +54,7 @@ def send_etl_notification(
     sender_email = os.getenv("EMAIL_SENDER")
     sender_password = os.getenv("EMAIL_PASSWORD")
     recipient = recipient_email or os.getenv("EMAIL_RECIPIENT", sender_email)
-    smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
+    smtp_host = os.getenv("SMTP_HOST", "smtp-mail.outlook.com")
     smtp_port = int(os.getenv("SMTP_PORT", "587"))
 
     # Validate required credentials
